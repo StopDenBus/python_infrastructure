@@ -1,0 +1,27 @@
+name: Release python package
+
+on:
+  merge_group:
+  pull_request:
+    types: [ closed ]
+    paths-ignore:
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+          cache: 'poetry'
+      - run: poetry install
+      - run: poetry config repositories.local https://pypi.apps.gusek.info/
+      - run: poetry config http-basic.local pypi "${{ secrets.PYPI_PASSWORD }}"
+      - name: Publish package
+        run: poetry publish --build -r local
