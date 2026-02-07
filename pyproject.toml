@@ -1,6 +1,6 @@
 [project]
 name = "infrastructure"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 authors = [
     {name = "Michael Gusek",email = "michael.gusek@web.de"}
@@ -8,7 +8,8 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "pulumi (>=3.219.0,<4.0.0)"
+    "pulumi (>=3.219.0,<4.0.0)",
+    "pulumi-tls (>=5.3.0,<6.0.0)"
 ]
 
 [tool.poetry]
