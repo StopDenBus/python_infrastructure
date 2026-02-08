@@ -3,18 +3,20 @@ import pulumi_tls as tls
 
 class PrivateKey(pulumi.ComponentResource):
     def __init__(self, name: str, algorithm: str, ecdsa_curve: str = None, rsa_bits: int = 2048, opts=None):
-        super().__init__('pkg:index:PrivateKey', name_me, None, opts)
+        super().__init__('pkg:index:PrivateKey', name, None, opts)
         child_opts = pulumi.ResourceOptions(parent=self)
         self.__name = name
         self.__algorithm = algorithm
         self.__ecdsa_curve = algorithm
         self.__rsa_bits = rsa_bits
 
+        self.private_key = self.generate_keys()
+
         self.register_outputs({
-            self.__name: self.generate_keys()
+            self.__name: self.private_key
         })
 
-    def generate_keys():
+    def generate_keys(self):
         return tls.PrivateKey(
                 self.__name,
                 algorithm=self.__algorithm,
