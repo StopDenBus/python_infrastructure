@@ -236,6 +236,40 @@ pyyaml = ">=6.0,<7.0"
 semver = ">=3.0,<4.0"
 
 [[package]]
+name = "pulumi-proxmoxve"
+version = "7.12.0"
+description = "A Pulumi package for creating and managing Proxmox Virtual Environment cloud resources."
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "pulumi_proxmoxve-7.12.0-py3-none-any.whl", hash = "sha256:1427f8cf825687c0288f43e35c7fdda341e0b1032f9542d46739f835481abc13"},
+    {file = "pulumi_proxmoxve-7.12.0.tar.gz", hash = "sha256:4e925e424c3e4c99bef71e1aa5599a5fb83de4864468a16e388eaaf3aae48c02"},
+]
+
+[package.dependencies]
+parver = ">=0.2.1"
+pulumi = ">=3.0.0,<4.0.0"
+semver = ">=2.8.1"
+
+[[package]]
+name = "pulumi-random"
+version = "4.19.1"
+description = "A Pulumi package to safely use randomness in Pulumi programs."
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "pulumi_random-4.19.1-py3-none-any.whl", hash = "sha256:20a7b078919e1e324dd6ffc58c3dbc0bec556fb0e852fc44e79371435b743ce3"},
+    {file = "pulumi_random-4.19.1.tar.gz", hash = "sha256:c19c38ac78ba586fc4a96704c9e0b51edb0e52b290d8a42edd11ccea908fae7d"},
+]
+
+[package.dependencies]
+parver = ">=0.2.1"
+pulumi = ">=3.165.0,<4.0.0"
+semver = ">=2.8.1"
+
+[[package]]
 name = "pulumi-tls"
 version = "5.3.0"
 description = "A Pulumi package to create TLS resources in Pulumi programs."
@@ -362,4 +396,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.14"
-content-hash = "86c863464e2e9817698db7992acb9dba4fff794744e0784b4009bcc241dd4080"
+content-hash = "4f998d6ef4190b87bda66c07750ee443073ec9a10375ee0a67c996ff9f2167ad"
