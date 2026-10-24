@@ -55,9 +55,13 @@ class VirtualMachine(pulumi.ComponentResource):
             resource_name="vm",
             node_name=self.__node,
             agent=proxmox.vm.VirtualMachineAgentArgs(
-                enabled=False,
-                trim=True,
-                type="virtio"
+                enabled = True,
+                trim = True,
+                type = "virtio",
+                # wait_for_ip=proxmox.vm.VirtualMachineAgentWaitForIpArgs(
+                #     ipv4 = True,
+                #     ipv6 = True
+                # )
             ),
             bios="seabios",
             cpu=proxmox.vm.VirtualMachineCpuArgs(
@@ -98,10 +102,10 @@ class VirtualMachine(pulumi.ComponentResource):
                             address = self.__network['ipv4_address'],
                             gateway = self.__network['ipv4_gateway']
                         ),
-                        # ipv6=proxmox.vm.VirtualMachineInitializationIpConfigIpv6Args(
-                        #     address="fd91:0812:a17f:6194::10/64",
-                        #     gateway="fd91:0812:a17f:6194::1"
-                        # )
+                        ipv6=proxmox.vm.VirtualMachineInitializationIpConfigIpv6Args(
+                            address = self.__network['ipv6_address'],
+                            gateway = self.__network['ipv6_gateway']
+                        )
                     )
                 ],
                 user_account = proxmox.vm.VirtualMachineInitializationUserAccountArgs(
