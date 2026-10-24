@@ -27,6 +27,7 @@ jobs:
       - uses: astral-sh/setup-uv@v10.3.2
         with:
           python-version: '3.14'
+          enable-cache: false
       - uses: actions/setup-node@v6
         with:
           node-version: 'lts/*'
